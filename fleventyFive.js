@@ -6,6 +6,9 @@ var numbers = {0: '',      1: 'One',  2: 'Two', 3: 'Three',
                8: 'Eight', 9: 'Nine', 10: 'A',  11: 'B',
                12: 'C',    13: 'D',   14: 'E',  15: 'F'}
 
+var chars = ['0', '1', '2', '3', '4', '5', '6', '7',
+             '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+
 var teens = ["Eleven",  "Twelve", "Thirteen", "Fourteen", "Fifteen",
              "Sixteen", "Seventeen", "Eighteen", "Nineteen", "A-teen",
              "B-teen",  "C-teen"   , "D-teen"  , "E-teen",   "F-teen"]
@@ -88,4 +91,20 @@ function toString(number)
         strlist = (parseHundred(numlist[i]) + " " + magnitudes[i]) + " " + strlist;
     }
     return strlist;
+}
+
+function StringToHex(string)
+{
+    var num = 0
+    for (var i = 0; i < string.length; i++)
+    {
+        num *= 16
+        num += chars.indexOf(string[i]);
+    }
+    return num
+}
+
+function fleventyFive(string)
+{
+    return toString(StringToHex(string));
 }
